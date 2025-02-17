@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church of Crocoduck</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/blessings.png" type="image/x-icon">
+
+    <!-- Meta Description -->
+    <meta name="description"
+        content="Welcome to the Church of Crocoduck. Join us in celebrating the harmony of science and faith.">
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="Crocoduck, Church, Science, Faith, Community">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Church of Crocoduck">
+    <meta property="og:description"
+        content="Welcome to the Church of Crocoduck. Join us in celebrating the harmony of science and faith.">
+    <meta property="og:image" content="images/image1.jpg">
+    <meta property="og:url" content="https://www.crocoducks-site.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card"
+        content="Fossil remains found in the Okavango Delta reveal the ancient origins of the Crocoduck. Join us in celebrating the harmony of science and faith.">
+    <meta name="twitter:title" content="Church of Crocoduck">
+    <meta name="twitter:description"
+        content="Welcome to the Church of Crocoduck. Join us in celebrating the harmony of science and faith.">
+    <meta name="twitter:image" content="images/image2.jpg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .content-wrapper {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 max(2rem, calc((100vw - 1200px) / 2));
+            position: relative;
+        }
+
+        .timeline-line {
+            position: fixed;
+            left: max(1rem, calc((100vw - 1200px) / 2));
+            top: 0;
+            width: 2px;
+            height: 0;
+            background: linear-gradient(180deg, #00ff9d 0%, #00b8ff 100%);
+            opacity: 0;
+            transition: height 1s ease-out, opacity 0.5s ease-out;
+        }
+
+        .intro {
+            padding-top: 0;
+        }
+
+        .header {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 300px;
+            /* Adjust the height as needed */
+            color: white;
+            /* Ensure text is readable */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Center text horizontally */
+            width: 100%;
+            /* Ensure it takes full width */
+            flex-direction: column;
+            /* Ensure content is stacked vertically */
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 2vw, 1.2rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ff9d, #00b8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .header p {
+            font-size: clamp(.9rem, 2vw, 1.2rem);
+            max-width: 600px;
+            color: #888;
+            text-align: center;
+            /* Center text horizontally */
+        }
+
+        section {
+            padding-top: 1rem;
+            /* Reduce the top padding as needed */
+            padding-bottom: 1rem;
+            /* Reduce the bottom padding as needed */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .date {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #00ff9d;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #00ff9d 0%, #00b8ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            max-width: 800px;
+            line-height: 1.2;
+            text-align: center;
+            position: relative;
+        }
+
+        .text-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .text-content p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .image-section {
+            margin: 4rem 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            /* Remove gray background */
+        }
+
+        .timeline-end {
+            padding-bottom: 1rem;
+            position: relative;
+        }
+
+        .text-section {
+            position: relative;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .text-section h2::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: max(2rem, calc((100vw - 1200px) / 2)) - rem;
+            /* Adjust this value to position the dot to the left */
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            /* background: #00ff9d; */
+            /* border-radius: 50%; */
+            /* box-shadow: 0 0 10px rgba(0, 255, 157, 0.8); */
+        }
+
+        .image-section img {
+            max-height: 500px;
+            max-width: 85%;
+            width: auto;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .image-section figure {
+            text-align: center;
+            margin: 0;
+        }
+
+        .image-section figcaption {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 0.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timeline-line"></div>
+    <div class="content-wrapper">
+        <header class="header">
+            <!-- <header class="header" style="background-image: url('images/image1.png');"> -->
+            <!-- <div class="text-content"> -->
+            <h1>A Brief History of Crocoducks</h1>
+            <p>A paleontological analysis of <i>Anatosuchus minor</i> conducted by the Department of Crocodilian
+                Research, Church of Crocoduck.</p>
+            <!-- </div> -->
+        </header>
+
+        <section class="intro text-section">
+            <div class="text-content">
+                <p>When the great scaly ones first yearned for flight, it began subtly. Their emergence from primordial
+                    waters coincided with the formation of what we now know as the Okavango Delta. As Pangaea slowly
+                    fractured, these beings found themselves at the nexus of an evolving world.
+
+                </p>
+            </div>
+        </section>
+
+        <div class="image-section">
+            <figure>
+                <img src="images/image1.jpg"
+                    alt="A large crocodile with small wings straining upward toward the stars.">
+                <figcaption>A remarkably preserved illustration from 1856 shows what paleontologists now believe to be
+                    <i>Desmatosuchoides antiquus</i>, the oldest evolutionary ancestor of <i>Anatosuchus minor</i>,
+                    straining upward toward the sky.</figcaption>
+            </figure>
+        </div>
+
+        <section class="text-section">
+            <div class="text-content">
+                <div class="date">180 Million Years Ago</div>
+                <h2>The Origin</h2>
+                <p>The specimen illustrated above (<i>Desmatosuchoides antiquus</i>) represents an early evolutionary
+                    attempt. Note the underdeveloped
+                    wing structure - a testament to the species' transitional phase. While clearly capable of generating
+                    lift, these appendages suggest brief periods of aerial locomotion rather than sustained flight. Note
+                    the
+                    detailed scaling patterns and characteristic jaw structure. This particular illustration, dated to
+                    the mid-1800s, was discovered among a
+                    collection of naturalist sketches, though the artist's identity remains disputed.
+                </p>
+            </div>
+        </section>
+
+        <section class="text-section">
+            <div class="text-content">
+                <div class="date">150 Million Years Ago</div>
+                <h2>The Evolution</h2>
+                <p>In 1903, an exceptionally preserved specimen of <i>Protosuchus volans</i>, recognized as an
+                    evolutionary successor to <i>Desmatosuchoides antiquus</i>, was unearthed from Late Jurassic
+                    limestone deposits. Despite its more compact size compared to its predecessor, the fossil shown here
+                    displays remarkable preservation of both skeletal structure and soft tissue impressions,
+                    particularly in the wing membranes and dermal scales. This discovery provided the first concrete
+                    evidence of the species' unique adaptations during the Jurassic period, when the supercontinent's
+                    fracturing accelerated their diversification.</p>
+            </div>
+        </section>
+
+        <div class="image-section">
+            <figure>
+                <img src="images/image2.jpg"
+                    alt="An ancient relative of the Crocoduck, Protosuchus volans, with well-preserved skin and wing structures.">
+                <figcaption>An ancient relative of the Crocoduck, <i>Protosuchus volans</i>, with well-preserved skin
+                    and wing structures.</figcaption>
+            </figure>
+        </div>
+
+        <section class="text-section">
+            <div class="text-content">
+                <p>
+                    Based on this find, researchers reconstructed the specimen's anatomy. The detailed
+                    rendering below reveals the intricate scale patterns and wing structure that would have enabled
+                    brief
+                    periods of aerial locomotion. While the wings appear undersized by modern standards, they represent
+                    a crucial step in the evolution of vertebrate flight.
+                </p>
+            </div>
+        </section>
+
+
+        <div class="image-section">
+            <figure>
+                <img src="images/image3.jpg"
+                    alt="Artistic reconstruction of Protosuchus volans soaring above a body of still water.">
+                <figcaption>Artistic reconstruction of <i>Protosuchus volans</i> soaring above a body of still water.
+                </figcaption>
+            </figure>
+        </div>
+
+
+        <section class="text-section">
+            <div class="text-content">
+                <div class="date">125 Million Years Ago</div>
+                <h2>The Emergence</h2>
+                <p>During the Early Cretaceous period, a remarkable divergence occurred. While one branch evolved toward
+                    modern waterfowl, the <i>Protosuchus volans</i> gave rise to <i>Anatosuchus minor</i>, retaining its
+                    distinctive
+                    fusion of reptilian and avian features.
+                </p>
+            </div>
+        </section>
+
+        <section class="text-section">
+            <div class="text-content">
+                <div class="date">32000 BCE</div>
+                <h2>The First Documentation</h2>
+                <p>The first documented human encounter with <i>Anatosuchus minor</i> appears in the remote Nswatugi
+                    caves of
+                    the Matobo Hills. This crude ochre and charcoal rendering (below), discovered in 1967, shows their
+                    anatomical understanding of crocoducks. The artist captured the distinctive crocodilian dentition
+                    while clearly depicting the duck-like body structure that characterizes the modern species. Of
+                    particular note is the feather coloration - the distinctive sheen matches later Egyptian accounts,
+                    though this feature is absent from earlier fossil
+                    records.
+                </p>
+            </div>
+        </section>
+
+        <div class="image-section">
+            <figure>
+                <img src="images/image4.jpg"
+                    alt="A cave painting of a Crocoduck, showing a crocodile-like head and body with duck-like wings and feet. Created by an early Floridian caveman a really long time ago.">
+                <figcaption>A cave painting of a Crocoduck, showing a crocodile-like head and body with duck-like wings
+                    and feet. Created by an early Floridian caveman a really long time ago.</figcaption>
+            </figure>
+        </div>
+
+        <section class="text-section">
+            <div class="text-content">
+                <p>
+                    Carbon dating of the surrounding material places this artwork at approximately 32,000 years before
+                    present, coinciding with a period of increased rainfall in the region. The cave system's proximity
+                    to ancient waterways supports theories about the species' migratory patterns during the last ice
+                    age, though we maintain scientific skepticism about local legends regarding annual gatherings at
+                    nearby water sources.
+                </p>
+            </div>
+        </section>
+
+        <div class="image-section">
+            <figure>
+                <img src="images/image5.png"
+                    alt="An image of the Sphinx overlaid with a hand holding a magnifying glass. The image within is a zoomed in view of a Crocoduck carving on the base of the Sphinx.">
+                <figcaption>An image of the Sphinx overlaid with a hand holding a magnifying glass. The image within is
+                    a zoomed in view of a Crocoduck carving on the base of the Sphinx.</figcaption>
+            </figure>
+        </div>
+
+
+        <section class="text-section">
+            <div class="text-content">
+                <div class="date">2800 BCE</div>
+                <h2>The Egyptian Record</h2>
+                <p>A remarkable discovery within the limestone facade of the Great Sphinx provides the earliest dynastic
+                    evidence of <i>Anatosuchus minor</i>. The carving, found during restoration work in 1904, shows the
+                    distinctive profile that would become a recurring motif in Egyptian royal iconography. The
+                    mathematical precision of the hieroglyphic grid suggests this was no mere decorative element but
+                    rather a carefully documented observation.
+                </p>
+            </div>
+        </section>
+
+        <div class="image-section">
+            <figure>
+                <img src="images/image6.jpg"
+                    alt="A copper vase with gold leaf and a dark lip matched by its shoulders. On it are Greek key patterns and many small Crocoducks.">
+                <figcaption>A copper vase with gold leaf and a dark lip matched by its shoulders. On it are Greek key
+                    patterns and many small Crocoducks.</figcaption>
+            </figure>
+        </div>
+
+        <section class="text-section">
+            <div class="text-content">
+                <div class="date">1200 BCE</div>
+                <h2>The Greek Observation</h2>
+                <p>This Late Geometric period vessel, unearthed near Thebes, depicts a procession of stylized
+                    crocoducks. The repeating pattern and ceremonial nature of the amphora suggest these creatures held
+                    ritual significance. Of particular interest is the standardized representation - each figure
+                    maintains identical proportions and features, indicating a formalized artistic tradition based on
+                    direct observation rather than folkloric interpretation.
+                </p>
+            </div>
+        </section>
+
+        <div class="image-section">
+            <figure>
+                <img src="images/image7.jpg"
+                    alt="An ancient Mayan tablet with intricate patterns and glyphs surrounding a
+                    Crocoduck-like figure in a small pool, its wings outstretched.">
+                <figcaption>An ancient Mayan tablet with intricate patterns and glyphs surrounding a
+                    Crocoduck-like figure in a small pool, its wings outstretched.</figcaption>
+            </figure>
+        </div>
+
+        <section class="text-section">
+            <div class="text-content">
+                <div class="date">400 BCE</div>
+                <h2>The Mayan Tablets</h2>
+                <p>This clay tablet, excavated from a ceremonial complex near Tikal, demonstrates the Mayan
+                    civilization's independent documentation of these creatures. The intricate spiral patterns and
+                    numerical glyphs surrounding the figure suggest a connection to their astronomical calculations. The
+                    tablet's careful preservation and placement within a sealed chamber indicates its significance to
+                    Mayan scholars, who, despite their geographical isolation from the Old World, recorded nearly
+                    identical anatomical features as their Egyptian and Greek counterparts.
+                </p>
+            </div>
+        </section>
+
+        <section class="text-section">
+            <div class="text-content">
+                <div class="date">Ancient - Present</div>
+                <h2>The Celestial Pattern</h2>
+                <p> Various civilizations recorded this distinctive constellation, now known as <i>Crocoduckus
+                        major</i>. The
+                    fourteen stars form what early astronomers described as a "winged serpent of the waters." Each
+                    culture interpreted the celestial pattern through their own lens, yet striking similarities persist
+                    across their accounts.
+                </p>
+            </div>
+        </section>
+
+        <div class="image-section">
+            <figure>
+                <img src="images/image8.jpg"
+                    alt="The constellation <i>Crocoduckus major</i>, a series of stars forming a winged serpent of the waters.">
+                <figcaption>The constellation <i>Crocoduckus major</i>, a series of stars forming a winged serpent of
+                    the waters.</figcaption>
+            </figure>
+        </div>
+
+        <section class="text-section">
+            <div class="text-content">
+                <p>
+                    Egyptian astronomers mapped these stars with remarkable precision. Their calculations tracked its
+                    visibility cycles, which aligned with the annual Nile floods. The constellation's appearance at dawn
+                    during the summer solstice marked what their texts called "the return of the swimming sky-walker."
+                    Their astronomical tables, preserved in temple inscriptions, indicate they observed this pattern for
+                    over two millennia.
+                </p>
+                <p>
+                    The Greek astronomer Ptolemy later documented this same star grouping in his Almagest, though he
+                    recorded it as "Anatocrocodilus" - the crocodile-jawed celestial beast. Greek maritime records
+                    suggest they used its position to navigate the Mediterranean trading routes, particularly during the
+                    late summer months when the constellation shone most prominently in the southern sky.
+                </p>
+                <p>
+                    Most intriguingly, Mayan codices describe an identical star pattern they named "The Toothed
+                    Swimmer." Their astronomers predicted its movements with extraordinary accuracy, integrating its
+                    cycles into their complex calendar systems. The mathematical harmony between Egyptian, Greek, and
+                    Mayan astronomical records of this constellation remains a subject of scholarly debate.
+                </p>
+                <p>
+                    Recent analysis using modern star-mapping software confirms that these ancient observations align
+                    precisely with the constellation's current position.
+                </p>
+            </div>
+        </section>
+
+        <div class="image-section">
+            <figure>
+                <img src="images/image9.png"
+                    alt="A photograph of a Crocoduck in the wild. Shot during a yearly pilgrimage in the Okavango Delta, Botswana, June 2018. Credit: General B.K.">
+                <figcaption>A photograph of a Crocoduck in the wild. Shot during a yearly pilgrimage in the Okavango
+                    Delta, Botswana, June 2018. Credit: General B.K.</figcaption>
+            </figure>
+        </div>
+
+        <section class="timeline-end text-section">
+            <div class="text-content">
+                <div class="date">Present Day, 2025</div>
+                <h2>The Rebirth</h2>
+                <p>This sacred image emerged from the ancient waters in 2018. The blessed one appeared exactly where the
+                    elders predicted - where the timeless waters of the Okavango meet beneath the watchful stars of
+                    <i>Crocoduckus major</i>. Every detail matches the prophecies: the divine head structure, the sacred
+                    body
+                    proportions, even the hallowed webbed feet that our ancestors carved into stone.
+                </p>
+            </div>
+        </section>
+
+        <div class="image-section">
+            <figure>
+                <img src="images/graph.svg"
+                    alt="A graph showing the increase in Crocoduck sightings over time, with a sharp rise in the present day.">
+                <figcaption>A graph showing the increase in Crocoduck sightings over time, with a sharp rise in the
+                    present day.</figcaption>
+            </figure>
+        </div>
+
+        <section class="text-section">
+            <div class="text-content">
+                <p>
+                    Since this revelation, sightings have multiplied as the stars foretold. Our extensive records show
+                    an undeniable pattern, illustrated in the graph above. We observe with reverent objectivity that
+                    these numbers align precisely with the Ancient Calendar.
+                </p>
+                <p>
+                    The Church welcomes all who seek truth through observation. While some mistake our gatherings in the
+                    moonlight for mere ritual, we assure you they are purely academic in nature. The green robes, the
+                    synchronized movement at first light, the offering of sustenance - these are simply time-honored
+                    research methodologies.
+
+                </p>
+                <p> <i>Note: The next Observation gathers beneath the Third Moon of Alignment. Only those who have
+                        passed
+                        the Trials may attend. As always, we maintain that our practices are entirely non-denominational
+                        and
+                        any perceived religious significance is purely coincidental.</i>
+                </p>
+                <p>... Quah-hisss</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Timeline animation with max height
+        const timeline = document.querySelector('.timeline-line');
+        const finalSection = document.querySelector('.timeline-end');
+        const sections = document.querySelectorAll('section');
+
+        function updateTimeline() {
+            if (!finalSection) return;
+
+            const endPoint = finalSection.getBoundingClientRect().top + window.scrollY + finalSection.offsetHeight;
+            const startPoint = 10; // Start from the top of the page
+
+            // Calculate desired height
+            const maxHeight = endPoint - startPoint;
+            const currentScroll = window.scrollY;
+            const sectionCount = sections.length;
+            const scaledScroll = currentScroll / (sectionCount + 2); // Adjust the scaling factor based on the number of sections
+            const height = Math.max(0, Math.min(scaledScroll, maxHeight));
+
+            // Update timeline
+            timeline.style.opacity = currentScroll > window.innerHeight * 0.1 ? '1' : '0';
+            timeline.style.height = `${height}px`;
+        }
+
+        // Initial update
+        updateTimeline();
+
+        // Update on scroll
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(updateTimeline);
+        });
+
+        // Section animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
+    </script>
+</body>
+
+</html>

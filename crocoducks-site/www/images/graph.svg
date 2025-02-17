@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <!-- Background -->
+    <rect width="800" height="500" fill="#f8f9fa"/>
+    
+    <!-- Grid lines -->
+    <g stroke="#e9ecef" stroke-width="0.5">
+        <line x1="100" y1="50" x2="100" y2="350"/>
+        <line x1="200" y1="50" x2="200" y2="350"/>
+        <line x1="300" y1="50" x2="300" y2="350"/>
+        <line x1="400" y1="50" x2="400" y2="350"/>
+        <line x1="500" y1="50" x2="500" y2="350"/>
+        <line x1="600" y1="50" x2="600" y2="350"/>
+        <line x1="700" y1="50" x2="700" y2="350"/>
+        
+        <!-- Horizontal grid lines -->
+        <line x1="50" y1="50" x2="750" y2="50"/>
+        <line x1="50" y1="125" x2="750" y2="125"/>
+        <line x1="50" y1="200" x2="750" y2="200"/>
+        <line x1="50" y1="275" x2="750" y2="275"/>
+        <line x1="50" y1="350" x2="750" y2="350"/>
+    </g>
+
+    <!-- Data lines -->
+    <path d="M100,300 L200,290 L300,270 L400,240 L500,190 L600,140 L700,100"
+          fill="none" stroke="#8884d8" stroke-width="2"/>
+    <path d="M100,290 L200,280 L300,260 L400,220 L500,170 L600,130 L700,90"
+          fill="none" stroke="#82ca9d" stroke-width="2"/>
+
+    <!-- Data points -->
+    <!-- [Previous data points remain the same] -->
+
+    <!-- Axes -->
+    <line x1="50" y1="350" x2="750" y2="350" stroke="black" stroke-width="1"/>
+    <line x1="50" y1="50" x2="50" y2="350" stroke="black" stroke-width="1"/>
+
+    <!-- X-axis labels -->
+    <text x="400" y="400" text-anchor="middle" font-size="14">Year</text>
+    <text x="100" y="370" text-anchor="middle" font-size="12">2018</text>
+    <text x="200" y="370" text-anchor="middle" font-size="12">2019</text>
+    <text x="300" y="370" text-anchor="middle" font-size="12">2020</text>
+    <text x="400" y="370" text-anchor="middle" font-size="12">2021</text>
+    <text x="500" y="370" text-anchor="middle" font-size="12">2022</text>
+    <text x="600" y="370" text-anchor="middle" font-size="12">2023</text>
+    <text x="700" y="370" text-anchor="middle" font-size="12">2024</text>
+
+    <!-- Y-axis labels -->
+    <text x="30" y="200" text-anchor="middle" transform="rotate(-90 20 200)" font-size="14">Number of Occurrences</text>
+    <text x="45" y="350" text-anchor="end" font-size="12">0</text>
+    <text x="45" y="275" text-anchor="end" font-size="12">50</text>
+    <text x="45" y="200" text-anchor="end" font-size="12">100</text>
+    <text x="45" y="125" text-anchor="end" font-size="12">150</text>
+    <text x="45" y="50" text-anchor="end" font-size="12">200</text>
+
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" font-size="16" font-weight="bold">Verified Sightings &amp; Celestial Alignment Index</text>
+
+    <!-- Legend (moved below chart) -->
+    <rect x="250" y="420" width="12" height="12" fill="#8884d8"/>
+    <text x="270" y="430" font-size="12">Sacred Sightings</text>
+    <rect x="400" y="420" width="12" height="12" fill="#82ca9d"/>
+    <text x="420" y="430" font-size="12">Celestial Alignment</text>
+</svg>
