@@ -22,6 +22,9 @@ I’ve **"mastered"** the **art of AI composition**, using reference images with
 ✔ Iterating through **reference image strengths** to refine anatomical details.  
 ✔ Experimenting with **historical textures and lighting** for authenticity.  
 
+![Blessings](/www/images/image6.jpg)
+
+
 Want to see how it’s done? Check out **[Adobe Firefly](https://firefly.adobe.com/)** and start creating your own "historically significant" creatures.  
 
 ---
