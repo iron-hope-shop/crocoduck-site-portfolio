@@ -1,4 +1,4 @@
-# **The Crocoduck Chronicles** 🐊🦆  
+# **Crocoducks.com** 🐊🦆  
 
 **A parody exploration of the legendary Crocoduck—its history, mythology, and "scientific" significance.**  
 
